@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>AM_Asset</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Assets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Available From --></label>
+        <name>AM_Available_From__c</name>
+    </fields>
+    <fields>
+        <label><!-- Available for allocation --></label>
+        <name>AM_Available_for_allocation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>AM_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- ID --></label>
+        <name>AM_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>AM_Location__c</name>
+        <relationshipLabel><!-- Assets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Out of Service --></label>
+        <name>AM_Out_of_Service__c</name>
+    </fields>
+    <fields>
+        <label><!-- Price --></label>
+        <name>AM_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>AM_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>AM_Type__c</name>
+        <picklistValues>
+            <masterLabel>Type A</masterLabel>
+            <translation><!-- Type A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type B</masterLabel>
+            <translation><!-- Type B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type C</masterLabel>
+            <translation><!-- Type C --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Asset Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Assign --></label>
+        <name>Assign</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Report a problem --></label>
+        <name>Report_a_problem</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Apartment --></label>
+        <name>Apartment</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Device --></label>
+        <name>Device</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Locker --></label>
+        <name>Locker</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

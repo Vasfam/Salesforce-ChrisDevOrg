@@ -1,0 +1,10 @@
+<apex:page standardController="Feedback__c" recordSetVar="feedback" tabStyle="Feedback__c">
+    <apex:pageBlock Title="Existing Feedback">
+         <apex:pageblockTable value="{!feedback}" var="f" >
+             <apex:column value="{!f.ShortFeedback__c}"/>
+             <apex:column value="{!f.CreatedBy.Name}"/>
+             <apex:column value="{!f.Response__c}"/>
+         </apex:pageblockTable>
+
+ </apex:pageBlock>
+</apex:page>

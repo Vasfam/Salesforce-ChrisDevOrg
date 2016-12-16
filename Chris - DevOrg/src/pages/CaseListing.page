@@ -1,0 +1,32 @@
+<apex:page Controller="CaseListingController">
+    <apex:form >
+    <apex:pageBlock title="List of Cases">
+        <apex:pageBlockSection columns="1">
+            <apex:pageBlockTable value="{!ListofCases}" var="cItem">
+                <apex:column headerValue="Subject">
+                    <apex:outputText value="{!cItem.subject}"/>
+                </apex:column>
+                <apex:column headerValue="Case Number">
+                    <apex:outputText value="{!cItem.caseNumber}"/>
+                </apex:column>
+                <apex:column headerValue="Case Status">
+                    <apex:outputText value="{!cItem.status}"/>
+                </apex:column>
+                <apex:column headerValue="Case Priority">
+                    <apex:outputText value="{!cItem.priority}"/>
+                </apex:column>
+                <apex:column headerValue="Description">
+    				<apex:inputText value="{!cItem.qtyToBuy}" rendered="{! cItem.inStock}"/>
+    				<apex:outputText value="Out of Stock" rendered="{! NOT(cItem.inStock)}"/>
+				</apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection >
+    	<apex:commandButton action="{!addnewCase}" value="Add new Case" reRender="shopping_cart"/>
+</apex:pageBlockSection>
+    </apex:pageBlock>
+        <apex:pageBlock title="Your Cart" id="shopping_cart">
+    	<apex:outputText value="{!cartContents}" escape="false"/>
+</apex:pageBlock>
+    </apex:form>
+</apex:page>

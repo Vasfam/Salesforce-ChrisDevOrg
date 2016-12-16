@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>c.vasilenko@easternbank.com</contactEmail>
+    <label>Slack</label>
+    <oauthConfig>
+        <callbackUrl>https://login.salesforce.com/services/oauth2/callback</callbackUrl>
+        <consumerKey>3MVG9KI2HHAq33RxQP2iMzi2A5wEMo.SGo9PqC6_5d8DOKHmrzM.ejX5xGxrku1oS.QB0NoQkhRWnFB5kZ5Jn</consumerKey>
+        <scopes>CustomPermissions</scopes>
+    </oauthConfig>
+</ConnectedApp>

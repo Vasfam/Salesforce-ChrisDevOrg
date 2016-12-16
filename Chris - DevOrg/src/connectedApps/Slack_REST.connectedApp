@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>c.vasilenko@easternbank.com</contactEmail>
+    <label>Slack REST</label>
+    <oauthConfig>
+        <callbackUrl>https://ebksalesforce.herokuapp.com</callbackUrl>
+        <consumerKey>3MVG9KI2HHAq33RxQP2iMzi2A5zP_buTva7MJAJ5wV5NmANt7GRUAhdkmqNR1zTnoVFZcW08A8sNOfSIcp4tC</consumerKey>
+        <scopes>Full</scopes>
+    </oauthConfig>
+</ConnectedApp>

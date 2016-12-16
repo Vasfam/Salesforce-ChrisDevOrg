@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Projects for Time Tracking</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Actual_Completion_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Completion Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Hours_Worked__c</fullName>
+        <description>Rollup of hours applied to project in time cards</description>
+        <externalId>false</externalId>
+        <label>Actual Hours Worked</label>
+        <summarizedField>Time_Card__c.Hours_Worked__c</summarizedField>
+        <summaryForeignKey>Time_Card__c.Project__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Start_Date__c</fullName>
+        <description>Actual Start Date for a Project</description>
+        <externalId>false</externalId>
+        <label>Actual Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Curent_Completion_Date__c</fullName>
+        <description>Current completion date</description>
+        <externalId>false</externalId>
+        <label>Current Completion Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Days_remaining_on_Project__c</fullName>
+        <description>Number of days remaining until most current estimated completion date</description>
+        <externalId>false</externalId>
+        <formula>Curent_Completion_Date__c - TODAY()</formula>
+        <label>Days remaining on Project</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>Project Description</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Hours_Remaining__c</fullName>
+        <description>Estimated hours remaining.  This is a roll-up summary of remaining hours estimated through time cards for a particular project</description>
+        <externalId>false</externalId>
+        <label>Estimated Hours Remaining</label>
+        <summarizedField>Project_Resource__c.Estimated_Hours_Remaining__c</summarizedField>
+        <summaryForeignKey>Project_Resource__c.Project__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Original_Completion_Date__c</fullName>
+        <description>Original Project Completion Date</description>
+        <externalId>false</externalId>
+        <label>Original Completion Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Parent_Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Parent Project</label>
+        <referenceTo>Project__c</referenceTo>
+        <relationshipLabel>Parent Project</relationshipLabel>
+        <relationshipName>Projects</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority</label>
+        <picklist>
+            <picklistValues>
+                <fullName>High</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Project_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Enterprise Project</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operational Project</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Research Effort</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Support Effort</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Administrative</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Project_Name__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <label>Project Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Projected_Start_Date__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <description>Project Start Date</description>
+        <externalId>false</externalId>
+        <label>Projected Start Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Revised_Start_Date__c</fullName>
+        <description>Updated Start Date for a project</description>
+        <externalId>false</externalId>
+        <label>Revised Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Sponsor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Sponsor of the project</description>
+        <externalId>false</externalId>
+        <label>Sponsor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Projects</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delayed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Teams__c</fullName>
+        <externalId>false</externalId>
+        <label>Teams</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Data Architecture</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Data Engineering</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Data Governance and Delivery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Enterprise Architecture</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Enterprise Delivery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Enterprise Development</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ISDM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ISDM Management</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Total_Estimated_Hours__c</fullName>
+        <description>Total Estimated Hours needed to complete the project.  This field is a roll-up summary of all Resource requirements for a project</description>
+        <externalId>false</externalId>
+        <label>Total Estimated Hours</label>
+        <summarizedField>Project_Resource__c.Estimated_Hours__c</summarizedField>
+        <summaryForeignKey>Project_Resource__c.Project__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Unplanned_Project__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Project has not been on-boarded through the Project Management Office</description>
+        <externalId>false</externalId>
+        <label>Unplanned Project</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Project</label>
+    <listViews>
+        <fullName>Active_Projects_non_Admin</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Name__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_Hours_Worked__c</columns>
+        <columns>Estimated_Hours_Remaining__c</columns>
+        <columns>Original_Completion_Date__c</columns>
+        <columns>Curent_Completion_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Complete</value>
+        </filters>
+        <filters>
+            <field>Project_Category__c</field>
+            <operation>notEqual</operation>
+            <value>Support Effort,Administrative</value>
+        </filters>
+        <label>Active Projects (non-Admin)</label>
+    </listViews>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Name__c</columns>
+        <columns>Projected_Start_Date__c</columns>
+        <columns>Original_Completion_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Project ID</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Projects</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Project_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Parent_Project__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Total_Estimated_Hours__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Projected_Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Original_Completion_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Project_Category__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sponsor__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Project_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Parent_Project__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Sponsor__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Teams__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Projected_Start_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Original_Completion_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Curent_Completion_Date__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Project_Name__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Project_Name__c</searchFilterFields>
+        <searchResultsAdditionalFields>Project_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Project_Category__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Projected_Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Original_Completion_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Teams__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

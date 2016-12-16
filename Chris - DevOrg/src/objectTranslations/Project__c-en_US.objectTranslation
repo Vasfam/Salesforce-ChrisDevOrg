@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projects</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actual Completion Date --></label>
+        <name>Actual_Completion_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Hours Worked --></label>
+        <name>Actual_Hours_Worked__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Start Date --></label>
+        <name>Actual_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Completion Date --></label>
+        <name>Curent_Completion_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days remaining on Project --></label>
+        <name>Days_remaining_on_Project__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Hours Remaining --></label>
+        <name>Estimated_Hours_Remaining__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original Completion Date --></label>
+        <name>Original_Completion_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Project --></label>
+        <name>Parent_Project__c</name>
+        <relationshipLabel><!-- Parent Project --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Category --></label>
+        <name>Project_Category__c</name>
+        <picklistValues>
+            <masterLabel>Administrative</masterLabel>
+            <translation><!-- Administrative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enterprise Project</masterLabel>
+            <translation><!-- Enterprise Project --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operational Project</masterLabel>
+            <translation><!-- Operational Project --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Research Effort</masterLabel>
+            <translation><!-- Research Effort --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support Effort</masterLabel>
+            <translation><!-- Support Effort --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Name --></label>
+        <name>Project_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Projected Start Date --></label>
+        <name>Projected_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Revised Start Date --></label>
+        <name>Revised_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sponsor --></label>
+        <name>Sponsor__c</name>
+        <relationshipLabel><!-- Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delayed</masterLabel>
+            <translation><!-- Delayed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planned</masterLabel>
+            <translation><!-- Planned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Teams --></label>
+        <name>Teams__c</name>
+        <picklistValues>
+            <masterLabel>Data Architecture</masterLabel>
+            <translation><!-- Data Architecture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Engineering</masterLabel>
+            <translation><!-- Data Engineering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Governance and Delivery</masterLabel>
+            <translation><!-- Data Governance and Delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enterprise Architecture</masterLabel>
+            <translation><!-- Enterprise Architecture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enterprise Delivery</masterLabel>
+            <translation><!-- Enterprise Delivery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enterprise Development</masterLabel>
+            <translation><!-- Enterprise Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISDM</masterLabel>
+            <translation><!-- ISDM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISDM Management</masterLabel>
+            <translation><!-- ISDM Management --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total Estimated Hours --></label>
+        <name>Total_Estimated_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unplanned Project --></label>
+        <name>Unplanned_Project__c</name>
+    </fields>
+    <layouts>
+        <layout>Project Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

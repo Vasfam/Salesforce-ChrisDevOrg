@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <choices>
+        <name>AD_Account_Lockout</name>
+        <choiceText>AD Account Lockout</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>AD Account Lockout</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Catie_Vasilenko</name>
+        <choiceText>Catie Vasilenko</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Catie Vasilenko</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Elli_Vasilenko</name>
+        <choiceText>Elli Vasilenko</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Elli Vasilenko</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>FIS_Account_Lockout</name>
+        <choiceText>FIS Account Lockout</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>FIS Account Lockout</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Incident_Other</name>
+        <choiceText>Incident - Other</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Incident</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Julie_Vasilenko</name>
+        <choiceText>Julie Vasilenko</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Julie Vasilenko</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Sam_Vasilenko</name>
+        <choiceText>Sam Vasilenko</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Sam Vasilenko</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <description>Service Request not listed above</description>
+        <name>Service_Request_Other</name>
+        <choiceText>Service Request - Other</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Service Request</stringValue>
+        </value>
+    </choices>
+    <constants>
+        <description>Account ID to filter contacts</description>
+        <name>AccountID</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>00161000005Q6EQ</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>Description to be used in a n AD Account Lock Case</description>
+        <name>ADAccountLockedDescription</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>User lockecd out of AD</stringValue>
+        </value>
+    </constants>
+    <constants>
+        <description>Subject of AD Locked out Case</description>
+        <name>ADLockedOutSubject</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>AD Account Locked</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>AD_Lockout_Case</name>
+        <label>AD Lockout Case</label>
+        <locationX>100</locationX>
+        <locationY>189</locationY>
+        <defaultConnector>
+            <targetReference>Incident_Input_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Create a new Incident</defaultConnectorLabel>
+        <rules>
+            <name>Create_an_AD_Account_Lockout_Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Request_Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>AD_Account_Lockout</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_AD_Lockout_Record</targetReference>
+            </connector>
+            <label>Create an AD Account Lockout Case</label>
+        </rules>
+    </decisions>
+    <dynamicChoiceSets>
+        <name>IncidentContacts</name>
+        <dataType>String</dataType>
+        <displayField>Name</displayField>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountID</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <valueField>Id</valueField>
+    </dynamicChoiceSets>
+    <interviewLabel>Help Desk Case Creation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Help Desk Case Creation</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_AD_Lockout_Record</name>
+        <label>Create AD Lockout Case</label>
+        <locationX>486</locationX>
+        <locationY>192</locationY>
+        <assignRecordIdToReference>NewCaseID</assignRecordIdToReference>
+        <connector>
+            <targetReference>NewCaseLookup</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>Contact</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>ADAccountLockedDescription</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Origin</field>
+            <value>
+                <stringValue>Web</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>ADLockedOutSubject</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Incident_Case</name>
+        <label>Create Incident Case</label>
+        <locationX>95</locationX>
+        <locationY>457</locationY>
+        <assignRecordIdToReference>NewCaseID</assignRecordIdToReference>
+        <connector>
+            <targetReference>NewCaseLookup</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>Incident_Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>Incident_Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordCreates>
+    <recordLookups>
+        <name>NewCaseLookup</name>
+        <label>NewCaseLookup</label>
+        <locationX>483</locationX>
+        <locationY>309</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Confirmation_Screen</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>NewCaseID</elementReference>
+            </value>
+        </filters>
+        <object>Case</object>
+        <outputAssignments>
+            <assignToReference>NewCaseNumber</assignToReference>
+            <field>CaseNumber</field>
+        </outputAssignments>
+    </recordLookups>
+    <screens>
+        <name>Confirmation_Screen</name>
+        <label>Confirmation Screen</label>
+        <locationX>484</locationX>
+        <locationY>443</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>CaseCreationConfirmation</name>
+            <fieldText>&lt;SPAN ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Thank you for submitting your case&lt;B&gt; {!NewCaseNumber}&lt;/b&gt;&lt;/FONT&gt;&lt;/SPAN&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <screens>
+        <name>Help_Desk_Home_Page</name>
+        <label>Help Desk Home Page</label>
+        <locationX>100</locationX>
+        <locationY>66</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>AD_Lockout_Case</targetReference>
+        </connector>
+        <fields>
+            <name>Contact</name>
+            <choiceReferences>IncidentContacts</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Contact</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Request_Type</name>
+            <choiceReferences>AD_Account_Lockout</choiceReferences>
+            <choiceReferences>FIS_Account_Lockout</choiceReferences>
+            <choiceReferences>Incident_Other</choiceReferences>
+            <choiceReferences>Service_Request_Other</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Request Type</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <screens>
+        <name>Incident_Input_Screen</name>
+        <label>Incident Input Screen</label>
+        <locationX>99</locationX>
+        <locationY>338</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Create_Incident_Case</targetReference>
+        </connector>
+        <fields>
+            <name>Incident_Subject</name>
+            <dataType>String</dataType>
+            <fieldText>Subject</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Incident_Description</name>
+            <fieldText>Description</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <startElementReference>Help_Desk_Home_Page</startElementReference>
+    <variables>
+        <description>ID of new Case Created</description>
+        <name>NewCaseID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>Create_an_AD_Account_Lockout_Case</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <description>The Case Number for the new case Created</description>
+        <name>NewCaseNumber</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

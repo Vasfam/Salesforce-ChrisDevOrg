@@ -1,0 +1,5 @@
+<apex:page standardController="Case" recordSetVar="cases">
+    <apex:repeat value="{!cases}" var="c">
+        <apex:outputText value="{!c.Id}"/>
+    </apex:repeat>
+</apex:page>
